@@ -102,8 +102,6 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.75 }}
             className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-white/40 lg:justify-start"
           >
-            <span>Bulk operations</span>
-            <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
             <span>No credits, no paywall</span>
             <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
             <span>Your data stays in your tenant</span>
