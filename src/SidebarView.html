@@ -476,16 +476,21 @@
         if (!delArmed) {
           delArmed = true;
           btn.textContent = 'Confirm?';
-          setTimeout(function () { delArmed = false; btn.textContent = 'Delete all'; }, 4000);
+          setTimeout(function () { if (delArmed) { delArmed = false; btn.textContent = 'Delete all'; } }, 4000);
           return;
         }
         delArmed = false;
-        btn.textContent = 'Delete all';
+        btn.disabled = true;
+        btn.textContent = 'Deleting\u2026';
         google.script.run.withSuccessHandler(function (res) {
+          btn.disabled = false;
+          btn.textContent = 'Delete all';
           showResult('setupResult', 'warn', escapeHtml(res.message || 'Deleted.'));
           document.getElementById('setupPrompt').classList.remove('hidden');
           document.getElementById('setupMini').classList.add('hidden');
         }).withFailureHandler(function (err) {
+          btn.disabled = false;
+          btn.textContent = 'Delete all';
           showResult('setupResult', 'err', escapeHtml(err.message));
         }).sidebarRun('deleteAllSheets');
       }
