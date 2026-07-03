@@ -9,23 +9,23 @@ const FAQS = [
   },
   {
     q: "Where does my data go?",
-    a: "Nowhere. Batchwork runs entirely inside Google's infrastructure between your spreadsheet and Google's own Admin API. There are no third-party servers, no analytics, and no data collection — your directory data never leaves your Google tenant.",
+    a: "Nowhere. Batchwork runs entirely inside Google's infrastructure between your spreadsheet and Google's own Admin API. There are no third-party servers, no analytics, and no data collection. Your directory data never leaves your Google tenant.",
   },
   {
     q: "Will it hit API rate limits like Ok Goldy did?",
-    a: "No — that failure mode is designed out. Every API call retries with exponential backoff and jitter, Admin SDK quotas are enforced per-user (so one admin can't starve another), and heavy users can self-host the open source in their own cloud project with their own quota.",
+    a: "No, that failure mode is designed out. Every API call retries with exponential backoff and jitter, Admin SDK quotas are enforced per-user (so one admin can't starve another), and heavy users can self-host the open source in their own cloud project with their own quota.",
   },
   {
     q: "What happens if a batch fails halfway?",
-    a: "Each row gets a ✔ or ✘ status as it's processed. Rows marked ✔ are skipped on re-run, so you can fix the failed rows and hit Run again — Batchwork resumes exactly where it stopped. Long batches also pause safely before Google's execution time limit and resume on the next run.",
+    a: "Each row gets a ✔ or ✘ status as it's processed. Rows marked ✔ are skipped on re-run, so you can fix the failed rows and hit Run again. Batchwork resumes exactly where it stopped. Long batches also pause safely before Google's execution time limit and resume on the next run.",
   },
   {
     q: "Is it really free? What's the catch?",
-    a: "Really free, no catch. All 14 operations, unlimited rows, forever. Batchwork is user-supported like Obsidian: optional supporter contributions and honor-system commercial licenses fund maintenance. Paywalling admin tooling is how tools end up abandoned.",
+    a: "Really free, no catch. All operations, unlimited rows, forever. Batchwork is user-supported like Obsidian: optional supporter contributions and honor-system commercial licenses fund maintenance. Paywalling admin tooling is how tools end up abandoned.",
   },
   {
     q: "Can MSPs use it across client tenants?",
-    a: "Yes. Install it per-tenant from the Marketplace, or copy the master spreadsheet into each client tenant for full per-client quota isolation — each copy runs under that tenant's own admin account, keeping audit logs clean.",
+    a: "Yes. Install it per-tenant from the Marketplace, or copy the master spreadsheet into each client tenant for full per-client quota isolation. Each copy runs under that tenant's own admin account, keeping audit logs clean.",
   },
 ];
 

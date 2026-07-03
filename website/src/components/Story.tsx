@@ -38,7 +38,7 @@ export default function Story() {
             </div>
             <p className="mt-4 leading-relaxed text-white/50">
               Tools like Ok Goldy routed every admin's API calls through one shared cloud
-              project. As installs grew, the shared quota ran dry — and one day every
+              project. As installs grew, the shared quota ran dry, and one day every
               operation returned{" "}
               <code className="rounded bg-red-500/10 px-1.5 py-0.5 font-mono text-[12.5px] text-red-300">
                 Resource has been exhausted
@@ -63,7 +63,7 @@ export default function Story() {
             <p className="mt-4 leading-relaxed text-white/50">
               Batchwork runs as an Apps Script in <em className="text-white/75">your</em>{" "}
               environment, calling Google's Admin SDK directly with per-user quotas and
-              automatic exponential backoff. A busy minute means a slightly slower run — never
+              automatic exponential backoff. A busy minute means a slightly slower run, never
               a dead tool. And because the source is open, you can always self-host.
             </p>
           </motion.div>

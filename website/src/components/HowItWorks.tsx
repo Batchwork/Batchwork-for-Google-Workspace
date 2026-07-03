@@ -12,7 +12,7 @@ const STEPS = [
     icon: Rows3,
     step: "02",
     title: "Set up sheets",
-    desc: "One click creates the 14 pre-formatted worksheets — one per operation, headers ready.",
+    desc: "One click creates all the pre-formatted worksheets, one per operation, headers ready.",
   },
   {
     icon: PencilLine,

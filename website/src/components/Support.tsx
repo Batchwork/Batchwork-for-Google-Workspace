@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Check, Coffee, Heart } from "lucide-react";
 
 const FREE = [
-  "All 14 bulk operations",
+  "All bulk operations",
   "Unlimited rows & runs",
   "Live progress panel",
   "Complete alias exports",
@@ -92,7 +92,7 @@ export default function Support() {
                 <div className="flex-1">
                   <div className="text-[14.5px] font-semibold">Become a Supporter</div>
                   <div className="text-[12.5px] text-white/40">
-                    One-time or monthly — fund development directly
+                    One-time or monthly, fund development directly
                   </div>
                 </div>
               </a>

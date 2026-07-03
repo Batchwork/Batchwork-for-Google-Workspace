@@ -30,7 +30,7 @@ const FEATURES = [
   {
     icon: Timer,
     title: "Outlives time limits",
-    desc: "Long batches pause safely before Google's execution ceiling and resume automatically on the next run — thousands of rows, zero babysitting.",
+    desc: "Long batches pause safely before Google's execution ceiling and resume automatically on the next run. Thousands of rows, zero babysitting.",
     gradient: "linear-gradient(137deg, rgba(251,191,36,.45), rgba(251,191,36,.06) 45%, rgba(96,165,250,.3))",
   },
   {
@@ -42,7 +42,7 @@ const FEATURES = [
   {
     icon: Sparkles,
     title: "Complete exports",
-    desc: "Exports include what other tools miss — non-editable domain aliases, org units, 2SV status, last login — cleanly labeled and filtered.",
+    desc: "Exports include what other tools miss: non-editable domain aliases, org units, 2SV status, last login. Cleanly labeled and filtered.",
     gradient: "linear-gradient(137deg, rgba(167,139,250,.5), rgba(96,165,250,.08) 45%, rgba(251,191,36,.35))",
   },
 ];

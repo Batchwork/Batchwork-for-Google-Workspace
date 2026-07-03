@@ -60,7 +60,7 @@ export default function Operations() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-azure">
-            14 operations
+            Operations
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
             Every bulk job an admin

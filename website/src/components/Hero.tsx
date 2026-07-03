@@ -71,7 +71,7 @@ export default function Hero() {
             className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-white/55 lg:mx-0"
           >
             Batchwork turns a Google Sheet into a control panel for your Workspace domain.
-            Create 500 users, add 2,000 group members, or export every alias — one row at a
+            Create 500 users, add 2,000 group members, or export every alias. One row at a
             time, with live progress and safe retries.
           </motion.p>
 
@@ -102,7 +102,7 @@ export default function Hero() {
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.75 }}
             className="mt-9 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[13px] text-white/40 lg:justify-start"
           >
-            <span>14 bulk operations</span>
+            <span>Bulk operations</span>
             <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
             <span>No credits, no paywall</span>
             <span className="hidden h-1 w-1 rounded-full bg-white/25 sm:block" />
