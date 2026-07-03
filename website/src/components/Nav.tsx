@@ -2,14 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const LINKS = [
-  { label: "Why Batchwork", href: "/#story" },
-  { label: "Operations", href: "/#operations" },
-  { label: "How it works", href: "/#how" },
-  { label: "Support", href: "/#support" },
-  { label: "FAQ", href: "/#faq" },
-];
-
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -37,23 +29,13 @@ export default function Nav() {
           <span className="font-heading text-[15px] font-700 tracking-tight">Batchwork</span>
         </a>
 
-        <nav className="hidden items-center gap-1 lg:flex">
-          {LINKS.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="whitespace-nowrap rounded-lg px-2.5 py-1.5 text-[13px] text-white/60 transition-colors hover:bg-white/5 hover:text-white"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
         <a
-          href="/#get"
+          href="https://workspace.google.com/marketplace"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group flex items-center gap-1.5 rounded-xl bg-azure px-4 py-2 text-[13px] font-semibold text-white transition-transform hover:scale-[1.03] active:scale-95"
         >
-          Get Batchwork
+          Marketplace
           <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
         </a>
       </div>
