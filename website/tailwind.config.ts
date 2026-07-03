@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ["'Sora'", "sans-serif"],
+        serif: ["'Instrument Serif'", "serif"],
         body: ["'Inter'", "sans-serif"],
         mono: ["'JetBrains Mono'", "monospace"],
       },

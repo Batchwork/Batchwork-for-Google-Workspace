@@ -1,54 +1,51 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Github } from "lucide-react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 export default function CTA() {
   return (
-    <section id="get" className="relative overflow-hidden px-6 py-32">
-      {/* big glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-azure/15 blur-[140px]" />
-      <div className="sheet-grid pointer-events-none absolute inset-0" />
+    <section id="get" className="relative overflow-hidden px-6 py-32 text-center">
+      {/* owned animated aurora backdrop */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="aurora" />
+      </div>
+      {/* top + bottom fades */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-ink to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
 
       <motion.div
-        initial={{ opacity: 0, y: 34 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative mx-auto max-w-3xl text-center"
+        className="relative z-10 mx-auto max-w-3xl"
       >
-        <motion.img
-          src="/icon-128.png"
-          alt=""
-          className="mx-auto mb-8 h-20 w-20"
-          initial={{ scale: 0.7, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 200, damping: 18, delay: 0.15 }}
-        />
-        <h2 className="font-heading text-4xl font-800 tracking-tight md:text-6xl">
-          Your next batch
-          <br /> takes five minutes.
+        <img src="/icon-128.png" alt="" className="mx-auto mb-8 h-16 w-16" />
+        <h2 className="font-heading text-4xl font-800 leading-[1] tracking-[-0.03em] md:text-6xl">
+          Put the busywork
+          <br />
+          on{" "}
+          <span className="font-serif font-400 italic text-sky">autopilot</span>.
         </h2>
-        <p className="mx-auto mt-6 max-w-md text-lg text-white/50">
-          Install from the Google Workspace Marketplace, or self-host the open source in your
-          own tenant.
+        <p className="mx-auto mt-6 max-w-md text-lg leading-relaxed text-white/50">
+          Install from the Marketplace, or clone the source and run it in your own
+          Google Cloud project. Either way, it's yours.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          {/* TODO: replace with the real Marketplace listing URL once published */}
           <a
             href="https://workspace.google.com/marketplace"
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-2.5 rounded-2xl bg-azure px-8 py-4 font-semibold shadow-[0_10px_36px_rgba(59,130,246,0.35)] transition-transform hover:scale-[1.04] active:scale-95"
+            className="group flex items-center gap-2 rounded-full bg-azure px-7 py-3.5 font-semibold text-white shadow-[0_10px_36px_rgba(59,130,246,0.4)] transition-transform hover:scale-[1.03] active:scale-95"
           >
             Get it on the Marketplace
-            <ArrowRight size={16} className="transition-transform group-hover:translate-x-0.5" />
+            <ArrowUpRight size={17} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
             href="https://github.com/Batchwork/Batchwork-for-Google-Workspace"
             target="_blank"
             rel="noreferrer"
-            className="glass flex items-center gap-2.5 rounded-2xl px-8 py-4 font-medium text-white/80 transition-transform hover:scale-[1.04] active:scale-95"
+            className="liquid-glass flex items-center gap-2 rounded-full px-7 py-3.5 font-medium text-white/85 transition-transform hover:scale-[1.03] active:scale-95"
           >
             <Github size={17} />
             Self-host from source

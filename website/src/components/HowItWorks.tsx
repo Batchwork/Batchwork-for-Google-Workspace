@@ -4,73 +4,77 @@ import { Download, PencilLine, PlayCircle, Rows3 } from "lucide-react";
 const STEPS = [
   {
     icon: Download,
-    step: "01",
-    title: "Install & open",
-    desc: "Add Batchwork from the Marketplace, then open the control panel from the Extensions menu in any Google Sheet.",
+    title: "Open the panel",
+    desc: "Install once, then open Batchwork from the Extensions menu of any Google Sheet. It lives right beside your data.",
   },
   {
     icon: Rows3,
-    step: "02",
-    title: "Set up sheets",
-    desc: "One click creates all the pre-formatted worksheets, one per operation, headers ready.",
+    title: "Lay out the sheets",
+    desc: "One click builds a pre-formatted worksheet for every operation, with the exact headers each one expects.",
   },
   {
     icon: PencilLine,
-    step: "03",
-    title: "Fill in rows",
-    desc: "One row per user, group, or alias. Paste from HR exports, CSVs, wherever your data lives.",
+    title: "Drop in your rows",
+    desc: "One row per user, group, or alias. Type them in or paste straight from an HR export or CSV. Leave a password blank and Batchwork generates one.",
   },
   {
     icon: PlayCircle,
-    step: "04",
-    title: "Run & watch",
-    desc: "Live progress in the panel, ✔ / ✘ status written to every row. Fix, re-run, done.",
+    title: "Hit run",
+    desc: "Progress streams into the panel while a ✔ or ✘ lands on every row. Fix the ✘ rows, run again, and the ✔ rows are skipped.",
   },
 ];
 
 export default function HowItWorks() {
   return (
     <section id="how" className="relative px-6 py-28">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mx-auto max-w-2xl text-center"
+          className="max-w-2xl"
         >
           <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-azure">
-            How it works
+            The workflow
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
-            From zero to bulk
-            <br /> in four steps.
+            Four moves, start to{" "}
+            <span className="font-serif font-400 italic text-sky">finish</span>.
           </h2>
         </motion.div>
 
-        <div className="relative mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-          {/* connecting line */}
-          <div className="pointer-events-none absolute left-[12%] right-[12%] top-[52px] hidden h-px bg-gradient-to-r from-transparent via-azure/30 to-transparent lg:block" />
+        {/* vertical timeline */}
+        <div className="relative mt-14 pl-8">
+          {/* spine */}
+          <div className="absolute bottom-4 left-[11px] top-4 w-px bg-gradient-to-b from-azure/40 via-white/10 to-transparent" />
 
-          {STEPS.map((s, i) => (
-            <motion.div
-              key={s.step}
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: i * 0.12 }}
-              className="glass relative rounded-3xl p-7"
-            >
-              <div className="mb-5 flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-azure/15 text-sky">
-                  <s.icon size={20} />
+          <div className="space-y-8">
+            {STEPS.map((s, i) => (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: i * 0.08 }}
+                className="relative"
+              >
+                {/* node */}
+                <span className="absolute -left-8 top-1 grid h-6 w-6 place-items-center rounded-full border border-azure/30 bg-ink text-[11px] font-bold text-sky">
+                  {i + 1}
                 </span>
-                <span className="font-mono text-[12px] text-white/25">{s.step}</span>
-              </div>
-              <h3 className="font-heading text-[16.5px] font-600 tracking-tight">{s.title}</h3>
-              <p className="mt-2.5 text-[13.5px] leading-[1.65] text-white/45">{s.desc}</p>
-            </motion.div>
-          ))}
+                <div className="flex items-start gap-4">
+                  <span className="mt-0.5 hidden h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/[0.05] text-sky sm:grid">
+                    <s.icon size={18} />
+                  </span>
+                  <div>
+                    <h3 className="font-heading text-lg font-600 tracking-tight">{s.title}</h3>
+                    <p className="mt-1.5 max-w-xl text-[14.5px] leading-relaxed text-white/50">{s.desc}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

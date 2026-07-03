@@ -25,7 +25,7 @@ export default function Support() {
             Pricing, sort of
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
-            Free forever.
+            Free <span className="font-serif font-400 italic text-sky">forever</span>.
             <br />
             <span className="text-white/50">Supported by people like you.</span>
           </h2>
