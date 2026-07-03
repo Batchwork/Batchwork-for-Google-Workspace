@@ -18,7 +18,7 @@ export default function CTA() {
         <motion.img
           src="/icon-128.png"
           alt=""
-          className="mx-auto mb-8 h-20 w-20 rounded-[22px] shadow-[0_18px_50px_rgba(59,130,246,0.4)]"
+          className="mx-auto mb-8 h-20 w-20"
           initial={{ scale: 0.7, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true }}
