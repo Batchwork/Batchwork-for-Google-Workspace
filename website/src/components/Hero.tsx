@@ -35,9 +35,7 @@ export default function Hero() {
         >
           Run your whole
           <br />
-          domain from a{" "}
-          <span className="font-serif font-400 italic tracking-normal text-sky">sheet</span>
-          .
+          domain from a <span className="text-sky">sheet</span>.
         </motion.h1>
 
         {/* subheadline */}
