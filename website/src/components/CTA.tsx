@@ -23,8 +23,7 @@ export default function CTA() {
         <h2 className="font-heading text-4xl font-800 leading-[1] tracking-[-0.03em] md:text-6xl">
           Put the busywork
           <br />
-          on{" "}
-          <span className="font-serif font-400 italic text-sky">autopilot</span>.
+          on autopilot.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-lg leading-relaxed text-white/50">
           Install from the Marketplace, or clone the source and run it in your own

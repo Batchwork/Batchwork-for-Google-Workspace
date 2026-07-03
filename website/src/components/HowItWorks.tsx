@@ -39,8 +39,7 @@ export default function HowItWorks() {
             The workflow
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
-            Four moves, start to{" "}
-            <span className="font-serif font-400 italic text-sky">finish</span>.
+            Four moves, start to finish.
           </h2>
         </motion.div>
 

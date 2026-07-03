@@ -77,8 +77,7 @@ export default function FAQ() {
             FAQ
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
-            Questions admins{" "}
-            <span className="font-serif font-400 italic text-sky">ask</span>.
+            Questions admins ask.
           </h2>
         </motion.div>
 

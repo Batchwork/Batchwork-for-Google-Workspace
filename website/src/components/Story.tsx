@@ -18,9 +18,7 @@ export default function Story() {
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
             Built on what came before.
             <br />
-            <span className="text-white/50">
-              Designed to <span className="font-serif font-400 italic text-sky/80">last</span>.
-            </span>
+            <span className="text-white/50">Designed to last.</span>
           </h2>
         </motion.div>
 

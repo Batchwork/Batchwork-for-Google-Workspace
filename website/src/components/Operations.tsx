@@ -62,8 +62,7 @@ export default function Operations() {
             Operations
           </span>
           <h2 className="mt-4 font-heading text-3xl font-700 tracking-tight md:text-5xl">
-            Everything you can run in{" "}
-            <span className="font-serif font-400 italic text-sky">bulk</span>.
+            Everything you can run in bulk.
           </h2>
         </motion.div>
 
