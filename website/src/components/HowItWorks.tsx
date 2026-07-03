@@ -5,22 +5,22 @@ const STEPS = [
   {
     icon: Download,
     title: "Open the panel",
-    desc: "Install once, then open Batchwork from the Extensions menu of any Google Sheet. It lives right beside your data.",
+    desc: "Install once, then open Batchwork from the Extensions menu of any Google Sheet.",
   },
   {
     icon: Rows3,
     title: "Lay out the sheets",
-    desc: "One click builds a pre-formatted worksheet for every operation, with the exact headers each one expects.",
+    desc: "One click builds a pre-formatted worksheet for every operation, headers and all.",
   },
   {
     icon: PencilLine,
     title: "Drop in your rows",
-    desc: "One row per user, group, or alias. Type them in or paste straight from an HR export or CSV. Leave a password blank and Batchwork generates one.",
+    desc: "One row per user, group, or alias. Type them in or paste from a CSV. Leave a password blank and Batchwork generates one.",
   },
   {
     icon: PlayCircle,
     title: "Hit run",
-    desc: "Progress streams into the panel while a ✔ or ✘ lands on every row. Fix the ✘ rows, run again, and the ✔ rows are skipped.",
+    desc: "Progress streams into the panel while a ✔ or ✘ lands on every row. Fix the misses, run again, done.",
   },
 ];
 

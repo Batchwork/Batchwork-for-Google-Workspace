@@ -37,9 +37,8 @@ export default function Story() {
               <h3 className="font-heading text-lg font-600">Standing on shoulders</h3>
             </div>
             <p className="mt-4 leading-relaxed text-white/50">
-              Tools like Ok Goldy showed admins what was possible. Bulk user creation,
-              group management, alias exports. They saved countless hours. Batchwork 
-              wouldn't exist without them paving the way.
+              Tools like Ok Goldy showed admins what was possible and saved countless
+              hours. Batchwork wouldn't exist without them.
             </p>
           </motion.div>
 
@@ -57,10 +56,9 @@ export default function Story() {
               <h3 className="font-heading text-lg font-600">A different architecture</h3>
             </div>
             <p className="mt-4 leading-relaxed text-white/50">
-              Batchwork runs entirely in <em className="text-white/75">your</em> Google
-              environment. API calls use your own quota, not a shared pool. No central
-              server means no single point of failure. And because it's open source,
-              it can't disappear.
+              Batchwork runs in <em className="text-white/75">your</em> Google environment
+              on your own API quota. No shared server means no single point of failure,
+              and being open source means it can't disappear.
             </p>
           </motion.div>
         </div>

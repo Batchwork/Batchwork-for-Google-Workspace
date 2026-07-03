@@ -26,8 +26,8 @@ export default function CTA() {
           on autopilot.
         </h2>
         <p className="mx-auto mt-6 max-w-md text-lg leading-relaxed text-white/50">
-          Install from the Marketplace, or clone the source and run it in your own
-          Google Cloud project. Either way, it's yours.
+          Install from the Marketplace, or clone the source and run it yourself.
+          Either way, it's yours.
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">

@@ -44,8 +44,8 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           className="mt-6 max-w-[560px] text-lg leading-relaxed text-white/55"
         >
-          Batchwork turns Google Sheets into a control panel for Workspace. Create
-          users, manage groups, export aliases. Fill in rows, hit run, watch it work.
+          Batchwork turns Google Sheets into a control panel for Workspace. Fill in
+          rows, hit run, watch it work.
         </motion.p>
 
         {/* CTAs */}
