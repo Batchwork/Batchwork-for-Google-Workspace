@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Check, Coffee, Heart } from "lucide-react";
+import { Check, Coffee } from "lucide-react";
 
 const FREE = [
   "All bulk operations",
@@ -80,36 +80,20 @@ export default function Support() {
               Good tools disappear when maintainers burn out. Optional support keeps
               Batchwork actively developed and here for the long run.
             </p>
-            <div className="mt-7 space-y-3.5">
-              <a
-                href="/#get"
-                className="glass group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-azure/40"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-azure/15 text-sky">
-                  <Coffee size={18} />
-                </span>
-                <div className="flex-1">
-                  <div className="text-[14.5px] font-semibold">Become a Supporter</div>
-                  <div className="text-[12.5px] text-white/40">
-                    One-time or monthly, fund development directly
-                  </div>
+            <a
+              href="/#get"
+              className="mt-7 glass group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-azure/40"
+            >
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-azure/15 text-sky">
+                <Coffee size={18} />
+              </span>
+              <div className="flex-1">
+                <div className="text-[14.5px] font-semibold">Become a Supporter</div>
+                <div className="text-[12.5px] text-white/40">
+                  One-time or monthly, fund development directly
                 </div>
-              </a>
-              <a
-                href="/#get"
-                className="glass group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-violet/40"
-              >
-                <span className="grid h-10 w-10 place-items-center rounded-xl bg-violet/15 text-violet">
-                  <Heart size={18} />
-                </span>
-                <div className="flex-1">
-                  <div className="text-[14.5px] font-semibold">Commercial license</div>
-                  <div className="text-[12.5px] text-white/40">
-                    Honor system for companies that rely on Batchwork
-                  </div>
-                </div>
-              </a>
-            </div>
+              </div>
+            </a>
             <p className="mt-auto pt-6 text-center text-[11.5px] text-white/30">
               Supporting is optional. No feature is ever paywalled.
             </p>
