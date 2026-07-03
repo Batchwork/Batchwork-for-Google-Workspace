@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 
 const LINKS = [
   { label: "Why Batchwork", href: "/#story" },
-  { label: "Features", href: "/#features" },
   { label: "Operations", href: "/#operations" },
   { label: "How it works", href: "/#how" },
   { label: "Support", href: "/#support" },
