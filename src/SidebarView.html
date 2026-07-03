@@ -191,13 +191,13 @@
             <b>First run?</b>
             <p class="desc" style="margin:6px 0 0">Create the 14 worksheets this add-on works from.</p>
             <div class="btn-row">
-              <button class="btn btn-primary btn-block" onclick="runSetup()">Set up sheets</button>
+              <button class="btn btn-primary btn-block" id="setupBtn" onclick="runSetup('setupBtn')">Set up sheets</button>
             </div>
           </div>
           <div id="setupMini">
             <div style="display:flex;align-items:center;gap:8px">
               <span style="flex:1"><b>Setup Wizard</b></span>
-              <button class="btn btn-ghost" style="padding:5px 10px" onclick="runSetup()">Re-setup</button>
+              <button class="btn btn-ghost" style="padding:5px 10px" id="reSetupBtn" onclick="runSetup('reSetupBtn')">Re-setup</button>
               <button class="btn btn-ghost" style="padding:5px 10px;color:var(--red)" id="delAllBtn" onclick="deleteAll()">Delete all</button>
             </div>
           </div>
@@ -459,13 +459,20 @@
       }
 
       // ---------- setup wizard ----------
-      function runSetup() {
-        showResult('setupResult', 'ok', '<span class="spinner" style="border-color:rgba(0,0,0,.15);border-top-color:#135c2a"></span> Creating sheets\u2026');
+      function runSetup(btnId) {
+        var btn = document.getElementById(btnId);
+        var origText = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Creating\u2026';
+        document.getElementById('setupResult').innerHTML = '';
         google.script.run.withSuccessHandler(function (res) {
-          showResult('setupResult', 'ok', escapeHtml(res.message || 'Done.'));
+          btn.disabled = false;
+          btn.textContent = origText;
           document.getElementById('setupPrompt').classList.add('hidden');
           document.getElementById('setupMini').classList.remove('hidden');
         }).withFailureHandler(function (err) {
+          btn.disabled = false;
+          btn.textContent = origText;
           showResult('setupResult', 'err', escapeHtml(err.message));
         }).sidebarRun('setupSheets');
       }
@@ -482,10 +489,10 @@
         delArmed = false;
         btn.disabled = true;
         btn.textContent = 'Deleting\u2026';
+        document.getElementById('setupResult').innerHTML = '';
         google.script.run.withSuccessHandler(function (res) {
           btn.disabled = false;
           btn.textContent = 'Delete all';
-          showResult('setupResult', 'warn', escapeHtml(res.message || 'Deleted.'));
           document.getElementById('setupPrompt').classList.remove('hidden');
           document.getElementById('setupMini').classList.add('hidden');
         }).withFailureHandler(function (err) {
