@@ -30,9 +30,8 @@ export default function Support() {
             <span className="text-white/50">Supported by people like you.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-lg leading-relaxed text-white/50">
-            No paywalls, no credits, no locked features. Batchwork follows the Obsidian model:
-            the tool is free for everyone, and optional support keeps it maintained and
-            independent.
+            No paywalls, no credits, no locked features. The tool is free for everyone,
+            and optional support keeps it maintained and independent.
           </p>
         </motion.div>
 
@@ -78,8 +77,8 @@ export default function Support() {
           >
             <h3 className="font-heading text-xl font-700">Keep it alive</h3>
             <p className="mt-3 text-[14px] leading-relaxed text-white/50">
-              Ok Goldy died because one unpaid maintainer carried millions of installs alone.
-              Optional support means Batchwork never repeats that story.
+              Good tools disappear when maintainers burn out. Optional support keeps
+              Batchwork actively developed and here for the long run.
             </p>
             <div className="mt-7 space-y-3.5">
               <a

@@ -37,13 +37,13 @@ export default function Story() {
               <h3 className="font-heading text-lg font-600">The old way</h3>
             </div>
             <p className="mt-4 leading-relaxed text-white/50">
-              Tools like Ok Goldy routed every admin's API calls through one shared cloud
-              project. As installs grew, the shared quota ran dry, and one day every
-              operation returned{" "}
+              Shared-cloud bulk tools route every admin's API calls through one project.
+              As installs grow, the shared quota runs dry, and eventually every
+              operation returns{" "}
               <code className="rounded bg-red-500/10 px-1.5 py-0.5 font-mono text-[12.5px] text-red-300">
                 Resource has been exhausted
               </code>
-              . No fix ever came.
+              . Then you're stuck.
             </p>
           </motion.div>
 
