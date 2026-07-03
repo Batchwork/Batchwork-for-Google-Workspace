@@ -13,9 +13,6 @@ export default function Footer() {
         </div>
 
         <nav className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-[13px] text-white/45">
-          <a href="/#operations" className="transition-colors hover:text-white">Operations</a>
-          <a href="/#support" className="transition-colors hover:text-white">Support</a>
-          <a href="/#faq" className="transition-colors hover:text-white">FAQ</a>
           <a href="#/privacy" className="transition-colors hover:text-white">Privacy</a>
           <a href="#/terms" className="transition-colors hover:text-white">Terms</a>
           <a
