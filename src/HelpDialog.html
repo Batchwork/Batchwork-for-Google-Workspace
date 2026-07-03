@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank" />
+    <style>
+      body {
+        font-family: 'Google Sans', Roboto, Arial, sans-serif;
+        color: #202124;
+        margin: 16px 20px;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+      h3 { margin: 0 0 8px; font-size: 16px; }
+      .card {
+        border: 1px solid #dadce0;
+        border-radius: 8px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+      }
+      ol { margin: 6px 0 0; padding-left: 20px; }
+      li { margin-bottom: 6px; }
+      code {
+        background: #f1f3f4;
+        border-radius: 4px;
+        padding: 1px 5px;
+        font-size: 12.5px;
+      }
+      .hint { color: #5f6368; font-size: 12.5px; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>Getting started</h3>
+      <ol>
+        <li>Run <b>Setup Sheets</b> from the <b>Setup Wizard</b> menu to create all 14 worksheets.</li>
+        <li>Open the sheet for the task (e.g. <code>1. Create Users</code>) and fill in one row per user/group/member.</li>
+        <li>Run the matching menu item (e.g. <b>Users Manager &gt; 1. Create Users</b>).</li>
+        <li>Watch the <b>Status</b> column: <b>&#10004;</b> means done, <b>&#10006;</b> shows the error for that row.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Good to know</h3>
+      <ol>
+        <li><b>Safe to re-run:</b> rows already marked &#10004; are skipped, so you can fix failed rows and run the same action again.</li>
+        <li><b>Big batches:</b> long runs stop safely before Google&#8217;s script time limit &#8212; just run the action again to resume.</li>
+        <li><b>Rate limits:</b> every API call retries automatically with exponential backoff, so temporary &#8220;quota exceeded&#8221; errors resolve themselves.</li>
+        <li><b>Exports:</b> export sheets are fully rewritten each time you run them.</li>
+      </ol>
+    </div>
+    <p class="hint">You must be a Google Workspace super admin (or have the matching admin privileges) for these operations to succeed.</p>
+    <p class="hint">Batchwork is free without limits and 100% user-supported &#8212; see <b>&#9829; Support Batchwork</b> in the menu.</p>
+  </body>
+</html>

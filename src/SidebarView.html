@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_blank" />
+    <style>
+      :root {
+        --blue: #1a73e8;   --blue-bg: #e8f0fe;
+        --green: #188038;  --green-bg: #e6f4ea;
+        --amber: #b06000;  --amber-bg: #fef7e0;
+        --purple: #9334e6; --purple-bg: #f3e8fd;
+        --red: #d93025;    --red-bg: #fce8e6;
+        --ink: #202124;    --muted: #5f6368;
+        --line: #e0e3e7;   --bg: #f8f9fa;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      body {
+        font-family: 'Google Sans', Roboto, Arial, sans-serif;
+        font-size: 13px;
+        color: var(--ink);
+        background: var(--bg);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ---------- header ---------- */
+      .hdr {
+        background: linear-gradient(135deg, #0b2a63 0%, #1a4fbb 55%, #3b82f6 100%);
+        color: #fff;
+        padding: 16px 16px 14px;
+      }
+      .hdr-row { display: flex; align-items: center; gap: 10px; }
+      .logo {
+        width: 36px; height: 36px; border-radius: 8px;
+        background: rgba(255,255,255,0.15);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 16px; font-weight: 700; letter-spacing: -0.5px;
+        flex-shrink: 0;
+      }
+      .hdr .title { font-size: 15px; font-weight: 600; }
+      .hdr .sub { font-size: 11.5px; font-weight: 400; opacity: .8; }
+
+      .wrap { padding: 12px 12px 60px; }
+
+      /* ---------- cards & sections ---------- */
+      .card {
+        background: #fff; border: 1px solid var(--line); border-radius: 10px;
+        padding: 12px; margin-bottom: 10px;
+      }
+      .sec-label {
+        font-size: 10.5px; font-weight: 700; letter-spacing: 1px;
+        text-transform: uppercase; color: var(--muted);
+        margin: 14px 4px 6px;
+      }
+      .oplist { background: #fff; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+      .op {
+        display: flex; align-items: center; gap: 10px;
+        padding: 9px 12px; cursor: pointer;
+        border-bottom: 1px solid #f1f3f4;
+        transition: background .12s;
+      }
+      .op:last-child { border-bottom: none; }
+      .op:hover { background: #f6f9fe; }
+      .chip {
+        min-width: 24px; height: 24px; border-radius: 7px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 11px; font-weight: 700;
+      }
+      .op .lbl { flex: 1; }
+      .op .arr { color: #9aa0a6; font-size: 14px; }
+      .c-Users   { color: var(--blue);   background: var(--blue-bg); }
+      .c-Groups  { color: var(--green);  background: var(--green-bg); }
+      .c-Members { color: var(--amber);  background: var(--amber-bg); }
+      .c-Aliases { color: var(--purple); background: var(--purple-bg); }
+
+      /* ---------- buttons ---------- */
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        border: none; border-radius: 8px; cursor: pointer;
+        font-family: inherit; font-size: 12.5px; font-weight: 500;
+        padding: 8px 14px; transition: filter .12s, background .12s;
+      }
+      .btn:disabled { opacity: .55; cursor: default; }
+      .btn-primary { background: var(--blue); color: #fff; }
+      .btn-primary:hover:not(:disabled) { filter: brightness(1.08); }
+      .btn-danger { background: var(--red); color: #fff; }
+      .btn-ghost {
+        background: #fff; color: var(--blue);
+        border: 1px solid var(--line);
+      }
+      .btn-ghost:hover:not(:disabled) { background: #f6f9fe; }
+      .btn-block { width: 100%; }
+      .btn-row { display: flex; gap: 8px; margin-top: 12px; }
+      .btn-row .btn { flex: 1; }
+
+      /* ---------- detail view ---------- */
+      .back {
+        display: inline-flex; align-items: center; gap: 4px;
+        color: var(--muted); cursor: pointer; font-size: 12px;
+        margin: 2px 0 10px; background: none; border: none; padding: 4px 6px 4px 0;
+        font-family: inherit;
+      }
+      .back:hover { color: var(--ink); }
+      .d-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+      .d-head h2 { margin: 0; font-size: 15px; font-weight: 500; }
+      .desc { color: var(--muted); line-height: 1.5; margin: 0 0 10px; }
+      .req { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 2px; }
+      .req span {
+        font-size: 11px; background: var(--bg); border: 1px solid var(--line);
+        border-radius: 999px; padding: 2px 9px; color: var(--muted);
+      }
+
+      /* ---------- progress ---------- */
+      .prog { margin-top: 14px; }
+      .bar {
+        height: 6px; border-radius: 999px; background: #e8eaed; overflow: hidden;
+        position: relative;
+      }
+      .bar > i {
+        display: block; height: 100%; border-radius: 999px;
+        background: var(--blue); width: 0%;
+        transition: width .5s ease;
+      }
+      .bar.indet > i {
+        width: 35%;
+        animation: slide 1.2s ease-in-out infinite;
+      }
+      @keyframes slide {
+        0% { margin-left: -35%; } 100% { margin-left: 100%; }
+      }
+      .prog .txt { font-size: 12px; color: var(--muted); margin-top: 7px; }
+
+      /* ---------- result ---------- */
+      .result { border-radius: 10px; padding: 11px 13px; margin-top: 14px; line-height: 1.5; }
+      .result.ok   { background: var(--green-bg); color: #135c2a; }
+      .result.warn { background: var(--amber-bg); color: #7a4b00; }
+      .result.err  { background: var(--red-bg);   color: #a50e0e; }
+      .result b { font-weight: 700; }
+      .result .small { font-size: 11.5px; opacity: .85; margin-top: 4px; }
+
+      /* ---------- footer ---------- */
+      .foot {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: #fff; border-top: 1px solid var(--line);
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 8px 14px; font-size: 12px;
+      }
+      .foot a { color: var(--blue); text-decoration: none; cursor: pointer; margin-right: 12px; }
+      .foot .ver { color: #9aa0a6; font-size: 10.5px; }
+
+      /* ---------- in-panel modals ---------- */
+      .overlay {
+        position: fixed; inset: 0; z-index: 20;
+        background: rgba(32,33,36,.5);
+        display: flex; align-items: center; padding: 16px;
+      }
+      .modal {
+        position: relative; width: 100%;
+        background: #fff; border-radius: 12px; padding: 16px;
+        max-height: 80%; overflow-y: auto;
+        box-shadow: 0 8px 28px rgba(0,0,0,.28);
+      }
+      .modal h3 { margin: 0 24px 8px 0; font-size: 14.5px; font-weight: 700; }
+      .modal-x {
+        position: absolute; top: 8px; right: 8px;
+        background: none; border: none; cursor: pointer;
+        color: var(--muted); font-size: 13px; padding: 6px; border-radius: 6px;
+        font-family: inherit;
+      }
+      .modal-x:hover { background: var(--bg); color: var(--ink); }
+
+      .hidden { display: none !important; }
+      .muted { color: var(--muted); }
+      .spinner {
+        width: 14px; height: 14px; border-radius: 50%;
+        border: 2px solid rgba(255,255,255,.4); border-top-color: #fff;
+        animation: spin .8s linear infinite; display: inline-block;
+      }
+      @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body>
+    <div class="hdr">
+      <div class="hdr-row">
+        <div class="logo">BW</div>
+        <div>
+          <div class="title">Batchwork</div>
+          <div class="sub">Users &#183; Groups &#183; Aliases</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <!-- ============ HOME VIEW ============ -->
+      <div id="home">
+        <div id="setupCard" class="card">
+          <div id="setupPrompt" class="hidden">
+            <b>First run?</b>
+            <p class="desc" style="margin:6px 0 0">Create the 14 worksheets this add-on works from.</p>
+            <div class="btn-row">
+              <button class="btn btn-primary btn-block" onclick="runSetup()">Set up sheets</button>
+            </div>
+          </div>
+          <div id="setupMini">
+            <div style="display:flex;align-items:center;gap:8px">
+              <span style="flex:1"><b>Setup Wizard</b></span>
+              <button class="btn btn-ghost" style="padding:5px 10px" onclick="runSetup()">Re-setup</button>
+              <button class="btn btn-ghost" style="padding:5px 10px;color:var(--red)" id="delAllBtn" onclick="deleteAll()">Delete all</button>
+            </div>
+          </div>
+          <div id="setupResult"></div>
+        </div>
+
+        <div id="groups"></div>
+      </div>
+
+      <!-- ============ DETAIL VIEW ============ -->
+      <div id="detail" class="hidden">
+        <button class="back" onclick="goHome()">&#8592; All operations</button>
+        <div class="card">
+          <div class="d-head">
+            <span class="chip" id="dChip"></span>
+            <h2 id="dTitle"></h2>
+          </div>
+          <p class="desc" id="dDesc"></p>
+          <div class="req" id="dReq"></div>
+          <div class="btn-row">
+            <button class="btn btn-ghost" id="dOpen" onclick="openSheet()">Open sheet</button>
+            <button class="btn btn-primary" id="dRun" onclick="runOp()">Run</button>
+          </div>
+          <div class="prog hidden" id="dProg">
+            <div class="bar" id="dBar"><i id="dBarFill"></i></div>
+            <div class="txt" id="dProgTxt">Starting&#8230;</div>
+          </div>
+          <div id="dResult"></div>
+        </div>
+        <p class="muted" style="font-size:11.5px;line-height:1.5;margin:4px 6px">
+          Rows marked &#10004; are skipped on re-run, so it is always safe to run again after fixing errors.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ============ IN-PANEL MODALS ============ -->
+    <div id="helpModal" class="overlay hidden">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModals()" title="Close">&#10005;</button>
+        <h3>How it works</h3>
+        <ol style="margin:6px 0 0;padding-left:18px;line-height:1.6">
+          <li>Pick an operation and click <b>Open sheet</b>.</li>
+          <li>Fill one row per user, group or member.</li>
+          <li>Click <b>Run</b> and watch the live progress here.</li>
+          <li>&#10004; / &#10006; results land in the sheet's Status column.</li>
+        </ol>
+        <p class="muted" style="font-size:11.5px;line-height:1.5;margin:10px 0 0">
+          Rows marked &#10004; are skipped on re-run, so it is always safe to fix errors and run again.
+          Long runs pause safely near Google's time limit &#8212; run again to resume.
+        </p>
+      </div>
+    </div>
+    <div id="supportModal" class="overlay hidden">
+      <div class="modal">
+        <button class="modal-x" onclick="closeModals()" title="Close">&#10005;</button>
+        <h3>Batchwork is 100% user-supported</h3>
+        <p class="desc" style="margin:0 0 10px">Every feature is free, forever. Optional support keeps it maintained and independent.</p>
+        <!-- TODO: replace with your real payment links before publishing -->
+        <a href="https://example.com/TODO-supporter-link" class="btn btn-ghost btn-block" style="margin-bottom:6px">Become a Supporter</a>
+        <a href="https://example.com/TODO-commercial-link" class="btn btn-ghost btn-block">Commercial license (honor system)</a>
+        <p class="muted" style="font-size:11px;margin:10px 0 0">No feature is ever paywalled.</p>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>
+        <a onclick="openModal('helpModal')">Help</a>
+        <a onclick="openModal('supportModal')">&#9829; Support</a>
+      </span>
+      <span class="ver">Batchwork v1.0</span>
+    </div>
+
+    <script>
+      var OPS = [];
+      var current = null;      // op shown in detail view
+      var running = false;
+      var confirmArmed = false;
+      var pollTimer = null;
+      var pollInFlight = false;
+      var runStartedAt = 0;
+      var GROUP_ORDER = ['Users', 'Groups', 'Aliases'];
+
+      // ---------- bootstrap ----------
+      // The data is baked into the page server-side when the sidebar opens
+      // (Apps Script template scriptlet), so there is no google.script.run
+      // round-trip and the options render instantly.
+      var INIT = <?!= JSON.stringify(sidebarInit()) ?>;
+      OPS = INIT.ops;
+      document.getElementById('setupPrompt').classList.toggle('hidden', INIT.isSetUp);
+      document.getElementById('setupMini').classList.toggle('hidden', !INIT.isSetUp);
+      renderGroups();
+
+      function renderGroups() {
+        var host = document.getElementById('groups');
+        host.innerHTML = '';
+        GROUP_ORDER.forEach(function (g) {
+          var label = document.createElement('div');
+          label.className = 'sec-label';
+          label.textContent = g;
+          host.appendChild(label);
+
+          var list = document.createElement('div');
+          list.className = 'oplist';
+          OPS.filter(function (o) { return o.group === g; }).forEach(function (o) {
+            var row = document.createElement('div');
+            row.className = 'op';
+            row.innerHTML =
+              '<span class="chip c-' + o.group + '">' + o.n + '</span>' +
+              '<span class="lbl">' + o.label + '</span>' +
+              '<span class="arr">&#8250;</span>';
+            row.onclick = function () { showDetail(o); };
+            list.appendChild(row);
+          });
+          host.appendChild(list);
+        });
+      }
+
+      // ---------- navigation ----------
+      function showDetail(op) {
+        current = op;
+        confirmArmed = false;
+        document.getElementById('home').classList.add('hidden');
+        document.getElementById('detail').classList.remove('hidden');
+        document.getElementById('dChip').className = 'chip c-' + op.group;
+        document.getElementById('dChip').textContent = op.n;
+        document.getElementById('dTitle').textContent = op.label;
+        document.getElementById('dDesc').textContent = op.desc;
+
+        var req = document.getElementById('dReq');
+        req.innerHTML = '';
+        (op.required || []).forEach(function (col) {
+          var s = document.createElement('span');
+          s.textContent = col;
+          req.appendChild(s);
+        });
+
+        resetRunUi();
+
+        // Pre-open the operation's sheet in the background: by the time the
+        // user has read the card, the tab switch has usually already happened.
+        google.script.run.withFailureHandler(function () {}).sidebarOpenSheet(op.sheet);
+      }
+
+      function goHome() {
+        if (running) return;
+        current = null;
+        document.getElementById('detail').classList.add('hidden');
+        document.getElementById('home').classList.remove('hidden');
+      }
+
+      function resetRunUi() {
+        var btn = document.getElementById('dRun');
+        btn.disabled = false;
+        btn.className = 'btn ' + (current.destructive ? 'btn-danger' : 'btn-primary');
+        btn.textContent = current.type === 'export' ? 'Export now' : 'Run';
+        document.getElementById('dProg').classList.add('hidden');
+        document.getElementById('dResult').innerHTML = '';
+      }
+
+      // ---------- actions ----------
+      function openSheet() {
+        var btn = document.getElementById('dOpen');
+        btn.disabled = true;
+        btn.textContent = 'Opening\u2026';
+        function restore() {
+          btn.disabled = false;
+          btn.textContent = 'Open sheet';
+        }
+        google.script.run.withSuccessHandler(function (found) {
+          restore();
+          if (!found) {
+            showResult('dResult', 'err', 'That sheet does not exist yet \u2014 run <b>Set up sheets</b> first.');
+          }
+        }).withFailureHandler(restore).sidebarOpenSheet(current.sheet);
+      }
+
+      function runOp() {
+        if (running) return;
+        var btn = document.getElementById('dRun');
+
+        if (current.destructive && !confirmArmed) {
+          confirmArmed = true;
+          btn.textContent = 'Click again to confirm';
+          setTimeout(function () {
+            if (!running) { confirmArmed = false; resetRunUi(); }
+          }, 4000);
+          return;
+        }
+
+        running = true;
+        runStartedAt = Date.now();
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner"></span> Running\u2026';
+        document.getElementById('dResult').innerHTML = '';
+        var prog = document.getElementById('dProg');
+        prog.classList.remove('hidden');
+        document.getElementById('dBar').classList.toggle('indet', current.type === 'export');
+        document.getElementById('dBarFill').style.width = current.type === 'export' ? '' : '0%';
+        document.getElementById('dProgTxt').textContent = 'Starting\u2026';
+        startPolling();
+
+        google.script.run
+          .withSuccessHandler(function (res) { finishRun(res, null); })
+          .withFailureHandler(function (err) { finishRun(null, err); })
+          .sidebarRun(current.id);
+      }
+
+      function finishRun(res, err) {
+        running = false;
+        confirmArmed = false;
+        stopPolling();
+        resetRunUi();
+
+        if (err) {
+          showResult('dResult', 'err', '<b>Failed:</b> ' + escapeHtml(err.message || String(err)));
+          return;
+        }
+        if (res.error) {
+          showResult('dResult', 'err', escapeHtml(res.error));
+          return;
+        }
+        if (res.exported !== undefined) {
+          showResult('dResult', 'ok', '<b>Exported ' + res.exported + ' row(s)</b> to \u201C' + escapeHtml(res.sheetName) + '\u201D.');
+          return;
+        }
+        var cls = res.failed ? 'warn' : 'ok';
+        var html = '<b>' + res.success + ' succeeded</b>, ' + res.failed + ' failed' +
+          (res.skipped ? ', ' + res.skipped + ' already done' : '') + '.';
+        if (res.failed) html += '<div class="small">See the Status column for reasons \u2014 fix and run again; \u2714 rows are skipped.</div>';
+        if (res.stoppedEarly) html += '<div class="small"><b>Paused near the time limit.</b> Run again to resume automatically.</div>';
+        showResult('dResult', cls, html);
+      }
+
+      // ---------- live progress ----------
+      function startPolling() {
+        stopPolling();
+        pollTimer = setInterval(function () {
+          if (pollInFlight) return;
+          pollInFlight = true;
+          google.script.run.withSuccessHandler(function (p) {
+            pollInFlight = false;
+            if (!p || !running || p.ts < runStartedAt - 5000) return;
+            if (current && p.op !== current.sheet) return;
+            if (p.phase === 'export') {
+              document.getElementById('dProgTxt').textContent = p.done + ' rows collected\u2026';
+            } else if (p.total) {
+              var pct = Math.min(100, Math.round(p.done / p.total * 100));
+              document.getElementById('dBarFill').style.width = pct + '%';
+              document.getElementById('dProgTxt').textContent =
+                p.done + ' / ' + p.total + ' \u00B7 \u2714 ' + p.ok + '  \u2716 ' + p.fail;
+            }
+          }).withFailureHandler(function () { pollInFlight = false; }).sidebarGetProgress();
+        }, 1200);
+      }
+      function stopPolling() {
+        if (pollTimer) { clearInterval(pollTimer); pollTimer = null; }
+        pollInFlight = false;
+      }
+
+      // ---------- setup wizard ----------
+      function runSetup() {
+        showResult('setupResult', 'ok', '<span class="spinner" style="border-color:rgba(0,0,0,.15);border-top-color:#135c2a"></span> Creating sheets\u2026');
+        google.script.run.withSuccessHandler(function (res) {
+          showResult('setupResult', 'ok', escapeHtml(res.message || 'Done.'));
+          document.getElementById('setupPrompt').classList.add('hidden');
+          document.getElementById('setupMini').classList.remove('hidden');
+        }).withFailureHandler(function (err) {
+          showResult('setupResult', 'err', escapeHtml(err.message));
+        }).sidebarRun('setupSheets');
+      }
+
+      var delArmed = false;
+      function deleteAll() {
+        var btn = document.getElementById('delAllBtn');
+        if (!delArmed) {
+          delArmed = true;
+          btn.textContent = 'Confirm?';
+          setTimeout(function () { delArmed = false; btn.textContent = 'Delete all'; }, 4000);
+          return;
+        }
+        delArmed = false;
+        btn.textContent = 'Delete all';
+        google.script.run.withSuccessHandler(function (res) {
+          showResult('setupResult', 'warn', escapeHtml(res.message || 'Deleted.'));
+          document.getElementById('setupPrompt').classList.remove('hidden');
+          document.getElementById('setupMini').classList.add('hidden');
+        }).withFailureHandler(function (err) {
+          showResult('setupResult', 'err', escapeHtml(err.message));
+        }).sidebarRun('deleteAllSheets');
+      }
+
+      // ---------- misc ----------
+      function showResult(hostId, cls, html) {
+        document.getElementById(hostId).innerHTML = '<div class="result ' + cls + '">' + html + '</div>';
+      }
+      function openModal(id) {
+        closeModals();
+        document.getElementById(id).classList.remove('hidden');
+      }
+      function closeModals() {
+        ['helpModal', 'supportModal'].forEach(function (m) {
+          document.getElementById(m).classList.add('hidden');
+        });
+      }
+      // Click on the dimmed backdrop or press Escape to close.
+      ['helpModal', 'supportModal'].forEach(function (m) {
+        document.getElementById(m).addEventListener('click', function (e) {
+          if (e.target === this) closeModals();
+        });
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModals();
+      });
+      function escapeHtml(s) {
+        return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+    </script>
+  </body>
+</html>
