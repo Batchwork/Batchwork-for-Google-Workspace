@@ -1,11 +1,12 @@
 import { Github } from "lucide-react";
+import { asset } from "../lib/assets";
 
 export default function Footer() {
   return (
     <footer className="border-t border-line px-6 py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-8 md:flex-row">
         <div className="flex items-center gap-3">
-          <img src="/icon-128.png" alt="" className="h-9 w-9 rounded-lg" />
+          <img src={asset("icon-128.png")} alt="" className="h-9 w-9 rounded-lg" />
           <div>
             <div className="font-heading text-[15px] font-700">Batchwork</div>
             <div className="text-[12px] text-white/35">Bulk operations for Google Workspace</div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Check, ChevronRight, Mail, User, Users } from "lucide-react";
+import { asset } from "../lib/assets";
 
 /**
  * Large, detailed, perspective-tilted recreation of Batchwork in action:
@@ -47,7 +48,7 @@ export default function AppShowcase() {
         {/* ── Sidebar (the Batchwork control panel) ── */}
         <div className="w-[230px] shrink-0 border-r border-black/[0.06] bg-white">
           <div className="flex items-center gap-2.5 bg-gradient-to-br from-[#0b2a63] via-[#1a4fbb] to-[#3b82f6] px-4 py-3">
-            <img src="/icon-128.png" alt="" className="h-7 w-7" />
+            <img src={asset("icon-128.png")} alt="" className="h-7 w-7" />
             <span className="text-[12px] font-medium text-white/95">Users · Groups · Aliases</span>
           </div>
 

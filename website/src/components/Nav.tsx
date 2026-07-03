@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { asset } from "../lib/assets";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,8 +25,8 @@ export default function Nav() {
           scrolled ? "shadow-[0_12px_40px_rgba(3,8,24,0.55)]" : ""
         }`}
       >
-        <a href="/#" className="flex items-center gap-2.5">
-          <img src="/icon-128.png" alt="Batchwork" className="h-8 w-8 rounded-lg" />
+        <a href="#" className="flex items-center gap-2.5">
+          <img src={asset("icon-128.png")} alt="Batchwork" className="h-8 w-8 rounded-lg" />
           <span className="font-heading text-[15px] font-700 tracking-tight">Batchwork</span>
         </a>
 

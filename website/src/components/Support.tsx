@@ -61,7 +61,7 @@ export default function Support() {
               ))}
             </ul>
             <a
-              href="/#get"
+              href="#get"
               className="mt-8 block rounded-2xl bg-azure py-3.5 text-center font-semibold transition-transform hover:scale-[1.02] active:scale-95"
             >
               Install free
@@ -81,7 +81,7 @@ export default function Support() {
               Batchwork actively developed.
             </p>
             <a
-              href="/#get"
+              href="#get"
               className="mt-7 glass group flex items-center gap-4 rounded-2xl p-4 transition-colors hover:border-azure/40"
             >
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-azure/15 text-sky">

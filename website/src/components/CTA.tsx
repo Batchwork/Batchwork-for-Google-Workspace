@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Github } from "lucide-react";
+import { asset } from "../lib/assets";
 
 export default function CTA() {
   return (
@@ -19,7 +20,7 @@ export default function CTA() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 mx-auto max-w-3xl"
       >
-        <img src="/icon-128.png" alt="" className="mx-auto mb-8 h-16 w-16" />
+        <img src={asset("icon-128.png")} alt="" className="mx-auto mb-8 h-16 w-16" />
         <h2 className="font-heading text-4xl font-800 leading-[1] tracking-[-0.03em] md:text-6xl">
           Put the busywork
           <br />

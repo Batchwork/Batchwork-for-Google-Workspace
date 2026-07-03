@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Check, ChevronRight, Mail, User, Users } from "lucide-react";
+import { asset } from "../lib/assets";
 
 /**
  * Animated recreation of the real Batchwork control panel sidebar,
@@ -45,7 +46,7 @@ export default function SidebarDemo() {
     <div className="w-[300px] overflow-hidden rounded-2xl border border-white/10 bg-[#f8f9fa] text-left shadow-[0_30px_80px_rgba(2,6,20,0.6)]">
       {/* header — same gradient as the real sidebar */}
       <div className="flex items-center gap-2.5 bg-gradient-to-br from-[#0b2a63] via-[#1a4fbb] to-[#3b82f6] px-4 py-3.5">
-        <img src="/icon-128.png" alt="" className="h-8 w-8 rounded-lg" />
+        <img src={asset("icon-128.png")} alt="" className="h-8 w-8 rounded-lg" />
         <span className="text-[12.5px] font-medium text-white/95">Users · Groups · Aliases</span>
       </div>
 
